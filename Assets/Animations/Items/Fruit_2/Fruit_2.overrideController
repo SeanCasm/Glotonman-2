@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fruit_2
+  m_Controller: {fileID: 9100000, guid: 935376fd063a85841aead2706bad5d32, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6de413fb3835d9f40a0c99bcac63979e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 548d2c9bb56de4c40896c27603746317, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9097efa2e6c17834d93e7d89769bf8f8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d100290422613664a930269a0ef60577, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 594aaa1e2dc166d4f9566757a91a641e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a0436104cbfab8a4d937bc9252bf9374, type: 2}

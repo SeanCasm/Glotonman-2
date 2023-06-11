@@ -1,0 +1,4 @@
+main_1: E7FF00
+main_2: 00FFF3
+panel_1:0065FF
+panel_2:4F78CF
