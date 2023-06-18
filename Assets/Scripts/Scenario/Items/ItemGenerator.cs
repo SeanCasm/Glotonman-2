@@ -13,7 +13,7 @@ namespace Glotonman2.Scenario.Items
         [Header("References")]
         public PlayerStats m_GameData;
         public GameObject[] m_FruitPrefabs;
-        public List<Bonus> m_Items = new List<Bonus>();
+        public List<Item> m_Items = new List<Item>();
         private BoxCollider2D box;
         private Queue<Fruit> fruits = new Queue<Fruit>();
 
@@ -72,7 +72,7 @@ namespace Glotonman2.Scenario.Items
                 int counter = UnityEngine.Random.Range(m_ItemMin, m_ItemMax + 1);
                 float prob = UnityEngine.Random.Range(0f, 1f);
 
-                m_Items.Sort((x, y) => x.spawnProb.CompareTo(y.spawnProb));
+                m_Items.Sort((x, y) => x.m_SpawnProb.CompareTo(y.m_SpawnProb));
                 m_Items.Reverse();
 
                 yield return new WaitForSeconds(counter);
@@ -82,12 +82,11 @@ namespace Glotonman2.Scenario.Items
 
                 for (int i = 0; i < m_Items.Count; i++)
                 {
-                    if (prob > i * m_Items[i].spawnProb && prob <= m_Items[i].spawnProb)
+                    if (prob > i * m_Items[i].m_SpawnProb && prob <= m_Items[i].m_SpawnProb)
                     {
-                        Bonus item = m_Items[i];
-
-                        item.transform.position = spawnPoint;
-                        item.gameObject.SetActive(true);
+                        Item item = m_Items[i];
+                        item.SetSpawnPoint(spawnPoint);
+                        item.SetActiveSelf(true);
                         item.direction = direction;
                         break;
                     }
@@ -104,10 +103,9 @@ namespace Glotonman2.Scenario.Items
                 (Vector2 spawnPoint, Vector2 direction) = SetDirectionAndSpawn(side);
                 if (fruits.Count == 0) continue;
                 Fruit fruit = fruits.Dequeue();
-                fruit.transform.position = spawnPoint;
+                fruit.SetSpawnPoint(spawnPoint);
                 fruit.direction = direction;
-                fruit.gameObject.SetActive(true);
-
+                fruit.SetActiveSelf(true);
             }
         }
         public void EnqueueFruit(Fruit fruit) => fruits.Enqueue(fruit);

@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Speed: 115
-  m_BonusTime: 8
-  spawnProb: 0.2
+  m_BonusTime: 0
+  m_SpawnProb: 0
   m_OnPlayerCollected:
     m_PersistentCalls:
       m_Calls: []

@@ -46,7 +46,7 @@ Animator:
   m_GameObject: {fileID: 1817679492082013468}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 168da802b50721642b12e843dcaac289, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -70,8 +70,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Speed: 120
-  m_ItemGenerator: {fileID: 0}
-  m_GameData: {fileID: 0}
   m_HungryDecrement: -10
 --- !u!212 &3723697195587335420
 SpriteRenderer:

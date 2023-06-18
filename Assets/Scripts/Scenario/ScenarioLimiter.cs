@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Glotonman2.Data;
+using Glotonman2.Scenario.Items;
 
 namespace Glotonman2.Scenario
 {
@@ -12,7 +12,7 @@ namespace Glotonman2.Scenario
             if (other.CompareTag("Player"))
                 m_PlayerStats.DecrementLives();
             else if (other.CompareTag("Item"))
-                other.GetComponent<Glotonman2.Scenario.Items.Bonus>().OnCollisionDisable();
+                other.GetComponent<Item>().OnCollisionDisable();
         }
     }
 }

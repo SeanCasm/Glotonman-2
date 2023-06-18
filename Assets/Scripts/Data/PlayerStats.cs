@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 namespace Glotonman2.Data
@@ -10,8 +8,8 @@ namespace Glotonman2.Data
         public UnityEvent m_OnDeath;
         public UnityEvent m_Hurt;
         public Glotonman2.UI.Stats m_Stats;
-        public const int m_MaxHungry = 100;
-        private int score = 0, lives = 2, hungry = 0;
+        private const int m_MaxHungry = 100;
+        private int score = 0, lives = 2, hungry = 100;
         private float scoreMultiplier = 1;
 
         public void DecrementLives()
@@ -20,10 +18,7 @@ namespace Glotonman2.Data
             m_Stats.ChangeLives(lives);
             m_Hurt?.Invoke();
             if (lives <= 0)
-            {
-                if (lives == 0)
-                    m_OnDeath?.Invoke();
-            }
+                m_OnDeath?.Invoke();
         }
         public void IncrementScore(int amount)
         {
@@ -42,15 +37,15 @@ namespace Glotonman2.Data
             hungry += amount;
             switch (hungry)
             {
-                case >= m_MaxHungry:
-                    hungry = 0;
+                case <= 0:
+                    hungry = m_MaxHungry;
                     DecrementLives();
                     break;
-                case <= 0:
-                    hungry = 0;
+                case >= m_MaxHungry:
+                    hungry = m_MaxHungry;
                     break;
             }
-            m_Stats.ChangeHungry(hungry);
+            m_Stats.ChangeHungry(hungry / 10);
         }
     }
 

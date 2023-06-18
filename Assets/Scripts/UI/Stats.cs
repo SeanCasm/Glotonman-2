@@ -1,21 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using TMPro;
+using UnityEngine.UI;
+
 namespace Glotonman2.UI
 {
     public class Stats : MonoBehaviour
     {
         public int m_MaxLives = 2;
-        public TextMeshProUGUI m_Lives, m_Score, m_Best, m_Hungry;
+        public int m_MaxHungry = 10;
+        public TextMeshProUGUI m_Score, m_Best;
+        public Image m_Lives, m_Hungry;
         private void Start()
         {
-            m_Lives.text = $"Lives\n{m_MaxLives}/{m_MaxLives}";
+            m_Score.text = 0.ToString();
+            m_Lives.rectTransform.sizeDelta = new Vector2(16 * m_MaxLives, 16);
+            m_Hungry.rectTransform.sizeDelta = new Vector2(16 * m_MaxHungry, 16);
         }
         public void ChangeLives(int lives)
         {
-            m_Lives.text = $"Lives\n{lives} / {m_MaxLives}";
+            float current = m_Lives.rectTransform.sizeDelta.x;
+            m_Lives.rectTransform.sizeDelta = new Vector2(current - lives * 16, 16);
         }
         public void ChangeScore(int score)
         {
@@ -23,7 +27,7 @@ namespace Glotonman2.UI
         }
         public void ChangeHungry(int hungry)
         {
-            m_Hungry.text = $"Hungry\n{hungry}";
+            m_Hungry.rectTransform.sizeDelta = new Vector2(hungry * 8, 16);
         }
         public void ChangeBest(int best)
         {

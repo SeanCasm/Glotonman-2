@@ -8,4 +8,10 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Fruit_1
   m_Controller: {fileID: 9100000, guid: 935376fd063a85841aead2706bad5d32, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 594aaa1e2dc166d4f9566757a91a641e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bd123ef5bbc8fde40b688638bfc79dd3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6de413fb3835d9f40a0c99bcac63979e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9ae482d6c2cfcb741a914da3018a0085, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9097efa2e6c17834d93e7d89769bf8f8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fedf7032787b90744ab0c8763698b66c, type: 2}

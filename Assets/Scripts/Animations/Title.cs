@@ -1,24 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.Events;
+using TMPro;
 
 namespace Glotonman2.Animations
 {
 
-    public class TextFadeIn : MonoBehaviour
+    public class Title : MonoBehaviour
     {
         public float m_CharDelay = 0.1f;
+        public UnityEvent m_FadeCompleted;
+        public UnityEvent m_MoveUpCompleted;
         private TMP_Text textComponent;
-        // Start is called before the first frame update
         void Start()
         {
             textComponent = GetComponent<TMP_Text>();
             textComponent.alpha = 0f;
             StartCoroutine(FadeInText());
         }
-
+        private void OnMoveUpCompleted()
+        {
+            m_MoveUpCompleted?.Invoke();
+        }
         private IEnumerator FadeInText()
         {
             int totalChars = textComponent.text.Length;
@@ -32,6 +35,7 @@ namespace Glotonman2.Animations
 
             textComponent.maxVisibleCharacters = totalChars;
             textComponent.alpha = 1f;
+            m_FadeCompleted?.Invoke();
         }
     }
 }
